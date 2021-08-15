@@ -54,6 +54,8 @@ class Driver():
         '''
         close_driver
         
-        end the {main_webdriver} 
+        end the {main_webdriver}
+        quit entire browser 
         '''
-        self.driver.close() 
+        self.driver.close()
+        self.driver.quit()
