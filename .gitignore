@@ -3,9 +3,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# custom ignores for project.
+.history
+env/
+
 # C extensions
 *.so
-.history
+
 # Distribution / packaging
 .Python
 build/
