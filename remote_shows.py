@@ -5,6 +5,9 @@ from selenium.webdriver.support.ui import WebDriverWait # allow waiting for page
 from selenium.webdriver.support import expected_conditions as EC # determine whether the web page has loaded
 from selenium.common.exceptions import TimeoutException # handling timeout situation
 from selenium.webdriver.chrome.options import Options # chrome options import
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
 import platform # used for check using windows or linux
 import time # time import
 
