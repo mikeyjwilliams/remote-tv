@@ -39,13 +39,15 @@ class WebDriver(Driver):
             chrome_user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36'
             
             chromedriver_path = None
-            if os_platform in 'Linux':
+            if os_platform == 'Linux':
                 #! alter for your path to linux chrome driver
                 chromedriver_path = '~/drivers/chromedriver'
-            else: #! alter for windows chrome driver executable.
-                chromedriver_path = '../../../drivers/chromedriver.exe'
+            elif os_platform == 'Windows': #! alter for windows chrome driver executable.
+                chromedriver_path = '../drivers/chromedriver.exe'
+            else:
+                print('no system')
                 
-                
+            print('Chromedriver print ', chromedriver_path)  
             # chrome_option.add_argument(' - incognito')
             chrome_options.add_argument(chrome_user_agent)
             
@@ -63,7 +65,7 @@ class WebDriver(Driver):
                 #! change to path needed for you. 
                 mozilladriver_path = '~/drivers/geckodriver'
             else: #! change to path needed for you. Windows firefox executable.
-                mozilladriver_path = '../../../drivers/geckodriver.exe'
+                mozilladriver_path = '../drivers/geckodriver.exe'
             # if mozilla add to driver_option mozilla options
             mozilla_options.add_argument(mozilla_user_agent)
             

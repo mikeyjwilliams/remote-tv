@@ -2,19 +2,22 @@
 import os
 import platform
 from env.env import Env 
-from utility.Driver import WebDriver
+from utility.Driver import Driver, WebDriver
 from utility.Utility import Utility
 from resources.Locators import Locators
 from selenium import webdriver
+import time
 
-def browse(self):
+def browse():
 
-    browser = WebDriver()
+    browser = WebDriver(Driver)
     driver = browser.main_webdriver('chrome')
 
-    driver.get('google.com')
+    driver.('google.com')
 
-    driver.wait(10)
+    time.sleep(4)
 
-    driver.close()
+    close_browser = WebDriver(Driver)
+    close_browser.close_driver()
 
+browse()
