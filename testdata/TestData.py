@@ -2,5 +2,5 @@
 
 # Data Bank
 class TestData():
-    BASE_URL = 'www.netflix.com'
+    NETFLIX_BASE_URL = 'www.netflix.com'
     
