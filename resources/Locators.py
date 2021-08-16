@@ -25,6 +25,6 @@ constant_name = `tuple`(By.`names_from_above`, quoted=needed name)
 
 class Locators():
     # --- Profile Page Locators ---
-    #? chooses Mikey's profile from selection.
-    CHOOSE_PROFILE = (By.XPATH, '//*[@id="appMountPoint"]/div/div/div[1]/div[1]/div[2]/div/div/ul/li[2]/div/a/div/div')
+    #? chooses profile by name given.
+    NETFLIX_CHOOSE_PROFILE = (By.CLASS_NAME, 'profile-name')
     
