@@ -4,6 +4,8 @@ from selenium.webdriver.common.by import By # allow search with parameters
 from selenium.webdriver.support.ui import WebDriverWait # allow waiting for page to load
 from selenium.webdriver.support import expected_conditions as EC # determine whether the web page has loaded
 from selenium.common.exceptions import TimeoutException # handling timeout situation
+from selenium.webdriver.chrome.options import Options # chrome options import
+from selenium import webdriver # firefox options import
 import platform # used for check using windows or linux
 import time # for timeouts
 
@@ -33,7 +35,7 @@ class WebDriver(Driver):
         '''
         os_platform = platform.system() 
         if browser == 'chrome':
-            # chrome_option = ChromeOptions()
+            chrome_options = Options()
             chrome_user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36'
             
             chromedriver_path = None
@@ -45,15 +47,15 @@ class WebDriver(Driver):
                 
                 
             # chrome_option.add_argument(' - incognito')
-            self.driver.chrome_option.add_argument(chrome_user_agent)
+            chrome_options.add_argument(chrome_user_agent)
             
             
-            driver = self.driver.Chrome(executable_path=chromedriver_path, chrome_options=self.driver.chrome_option)
+            driver = webdriver.Chrome(executable_path=chromedriver_path, chrome_options=chrome_options)
             driver.maximize_window()
             return driver
             
         if browser == 'mozilla':
-            mozilla_option = self.driver.FirefoxOptions()
+            mozilla_options = webdriver.FirefoxOptions()
             mozilla_user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0'
             
             mozilladriver_path = None
@@ -63,10 +65,10 @@ class WebDriver(Driver):
             else: #! change to path needed for you. Windows firefox executable.
                 mozilladriver_path = '../../../drivers/geckodriver.exe'
             # if mozilla add to driver_option mozilla options
-            self.driver.mozilla_option.add_argument(mozilla_user_agent)
+            mozilla_options.add_argument(mozilla_user_agent)
             
 
-            driver = self.driver.Firefox(executable_path=mozilladriver_path, firefox_options=mozilla_option)
+            driver = webdriver.Firefox(executable_path=mozilladriver_path, firefox_options=mozilla_options)
             driver.maximize_window()
             return driver
             
@@ -78,5 +80,7 @@ class WebDriver(Driver):
         end the {main_webdriver}
         quit entire browser 
         '''
-        self.driver.close()
-        self.driver.quit()
+        webdriver.Chrome.close()
+        webdriver.Firefox.close()
+        webdriver.Chrome.quit()
+        webdriver.Firefox.quit()
