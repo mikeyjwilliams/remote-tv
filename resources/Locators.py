@@ -27,7 +27,8 @@ class Locators():
     # --- Netflix Profile Page Locators ---
     #? chooses profile by name given.
     NETFLIX_CHOOSE_PROFILE = (By.CLASS_NAME, 'profile-name')
-    # --- Netflix Browse Page Locators ---
+    # --- Netflix Search Page Locators ---
     #? Search tab button
     NETFLIX_SEARCH_BUTTON = (By.CLASS_NAME, 'searchTab')
+    NETFLIX_SEARCH_INPUT = (By.CLASS_NAME, 'searchInput')
     
