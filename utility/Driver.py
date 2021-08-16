@@ -33,37 +33,44 @@ class WebDriver(Driver):
         FIXME: as of now set up only for windows.
         TODO: set up if statement for linux else windows path for chrome driver.
         '''
-            
+        os_platform = platform.system() 
         if browser == 'chrome':
             # chrome_option = ChromeOptions()
             chrome_user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36'
-            os_platform = platform.system()
+            
             chromedriver_path = None
             if os_platform in 'Linux':
+                #! alter for your path to linux chrome driver
                 chromedriver_path = '~/drivers/chromedriver'
-            else:
+            else: #! alter for windows chrome driver executable.
                 chromedriver_path = '../drivers/chromedriver.exe'
                 
                 
             # chrome_option.add_argument(' - incognito')
             self.driver.chrome_option.add_argument(chrome_user_agent)
-            self.driver.chrome_option.add_argument('window-size=1200x600')
             
-            return self.driver.Chrome(executable_path=chromedriver_path, chrome_options=self.driver.chrome_option)
+            
+            driver = self.driver.Chrome(executable_path=chromedriver_path, chrome_options=self.driver.chrome_option)
+            driver.maximize_window()
+            return driver
             
         if browser == 'mozilla':
             mozilla_option = self.driver.FirefoxOptions()
             mozilla_user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0'
-            os_platform = 'Linux'
+            
+            mozilladriver_path = None
             if os_platform in 'Linux':
+                #! change to path needed for you. 
                 mozilladriver_path = '~/drivers/geckodriver'
-            else:
+            else: #! change to path needed for you. Windows firefox executable.
                 mozilladriver_path = '../../../drivers/geckodriver.exe'
             # if mozilla add to driver_option mozilla options
             self.driver.mozilla_option.add_argument(mozilla_user_agent)
-            mozilla_option.add_argument('window-size=1200x600')
+            
 
-            return self.driver.Firefox(executable_path=mozilladriver_path, firefox_options=mozilla_option)
+            driver = self.driver.Firefox(executable_path=mozilladriver_path, firefox_options=mozilla_option)
+            driver.maximize_window()
+            return driver
             
     
     def close_driver(self):
