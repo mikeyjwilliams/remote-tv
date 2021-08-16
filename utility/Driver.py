@@ -5,9 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait # allow waiting for page
 from selenium.webdriver.support import expected_conditions as EC # determine whether the web page has loaded
 from selenium.common.exceptions import TimeoutException # handling timeout situation
 import platform # used for check using windows or linux
-import pytest # testing 
 import time # for timeouts
-
 
 
 class Driver():
@@ -43,7 +41,7 @@ class WebDriver(Driver):
                 #! alter for your path to linux chrome driver
                 chromedriver_path = '~/drivers/chromedriver'
             else: #! alter for windows chrome driver executable.
-                chromedriver_path = '../drivers/chromedriver.exe'
+                chromedriver_path = '../../../drivers/chromedriver.exe'
                 
                 
             # chrome_option.add_argument(' - incognito')
