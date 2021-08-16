@@ -16,3 +16,24 @@ from env.env import Env
 class TestData():
     NETFLIX_BASE_URL = 'www.netflix.com'
 
+# chrome build
+chrome_options = Options()
+
+chrome_options.add_argument('start-maximized')
+
+
+chrome_path = '../drivers/chromedriver.exe'
+driver = webdriver.Chrome(executable_path=chrome_path, options=chrome_options)
+
+driver.get('www.google.com')
+time.sleep(10)
+input_bar = driver.find_element_by_id('input')
+input_bar.clear()
+input_bar.send_keys('https://www.netflix.com')
+time.sleep(5)
+driver.save_screenshot('front-page.png')
+driver.close()
+driver.quit()
+
+
+
