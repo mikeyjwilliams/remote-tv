@@ -1,23 +1,15 @@
 #!/usr/bin/env python3
-import os
-import platform
-from env.env import Env 
-from utility.Driver import Driver, WebDriver
-from utility.Utility import Utility
-from resources.Locators import Locators
-from selenium import webdriver
-import time
+from selenium import webdriver # allow launching browser
+from selenium.webdriver.common.by import By # allow search with parameters
+from selenium.webdriver.support.ui import WebDriverWait # allow waiting for page to load
+from selenium.webdriver.support import expected_conditions as EC # determine whether the web page has loaded
+from selenium.common.exceptions import TimeoutException # handling timeout situation
+from selenium.webdriver.chrome.options import Options # chrome options import
+import platform # used for check using windows or linux
+import time # time import
 
-def browse():
+from env.env import Env
 
-    browser = WebDriver(Driver)
-    driver = browser.main_webdriver('chrome')
+class TestData():
+    NETFLIX_BASE_URL = 'www.netflix.com'
 
-    driver.('google.com')
-
-    time.sleep(4)
-
-    close_browser = WebDriver(Driver)
-    close_browser.close_driver()
-
-browse()
