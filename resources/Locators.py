@@ -24,7 +24,10 @@ constant_name = `tuple`(By.`names_from_above`, quoted=needed name)
 '''
 
 class Locators():
-    # --- Profile Page Locators ---
+    # --- Netflix Profile Page Locators ---
     #? chooses profile by name given.
     NETFLIX_CHOOSE_PROFILE = (By.CLASS_NAME, 'profile-name')
+    # --- Netflix Browse Page Locators ---
+    #? Search tab button
+    NETFLIX_SEARCH_BUTTON = (By.CLASS_NAME, 'searchTab')
     
