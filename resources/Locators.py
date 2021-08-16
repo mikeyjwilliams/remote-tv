@@ -1,4 +1,11 @@
+#!/usr/bin/env python3
 from selenium.webdriver.common.by import By
+'''
+Locators File
+
+Holds all Locations By Name and locator strategy.
+'''
+
 '''
 usage of By import
 ID = "id"
@@ -17,4 +24,7 @@ constant_name = `tuple`(By.`names_from_above`, quoted=needed name)
 '''
 
 class Locators():
-    pass
+    # --- Profile Page Locators ---
+    #? chooses Mikey's profile from selection.
+    CHOOSE_PROFILE = (By.XPATH, '//*[@id="appMountPoint"]/div/div/div[1]/div[1]/div[2]/div/div/ul/li[2]/div/a/div/div')
+    
