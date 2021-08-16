@@ -8,3 +8,9 @@ example of environment variables that will be different for each user
 3. rename file `env_example.py` to `env.py`
 4. Fill in the blanks with info you desire to use.
 '''
+
+
+
+
+class Env():
+    NETFLIX_PROFILE = None
