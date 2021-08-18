@@ -22,7 +22,7 @@ chrome_options = Options()
 chrome_options.add_argument('start-maximized')
 
 
-chrome_path = '../drivers/chromedriver.exe'
+chrome_path = '../../drivers/chromedriver.exe'
 driver = webdriver.Chrome(executable_path=chrome_path, options=chrome_options)
 
 driver.get('https://www.netflix.com/login')
