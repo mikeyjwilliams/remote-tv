@@ -5,7 +5,6 @@ from selenium.webdriver.support.ui import WebDriverWait # allow waiting for page
 from selenium.webdriver.support import expected_conditions as EC # determine whether the web page has loaded
 from selenium.common.exceptions import TimeoutException # handling timeout situation
 from selenium.webdriver.chrome.options import Options # chrome options import
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 import platform # used for check using windows or linux
@@ -21,8 +20,14 @@ chrome_options = Options()
 
 chrome_options.add_argument('start-maximized')
 
+os_system = platform.system()
+chrome_path = None
+if os_system in 'Linux':
+    chrome_path = '~/drivers/chromedriver'
+else:
+    chrome_path = '../drivers/chromedriver.exe'
+    
 
-chrome_path = '../drivers/chromedriver.exe'
 driver = webdriver.Chrome(executable_path=chrome_path, options=chrome_options)
 
 driver.get('https://www.netflix.com/login')
@@ -37,7 +42,10 @@ login_button.send_keys(Keys.ENTER)
 
 
 
-time.sleep(5)
+time.sleep(10)
+
+driver.quit()
+
 
 
 
