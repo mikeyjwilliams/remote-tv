@@ -7,7 +7,7 @@ from selenium.common.exceptions import TimeoutException # handling timeout situa
 from selenium.webdriver.chrome.options import Options # chrome options import
 from selenium import webdriver # firefox options import
 import platform # used for check using windows or linux
-import time # for timeouts
+from time import sleep # for timeouts
 
 
 class Driver():

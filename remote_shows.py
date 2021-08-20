@@ -8,7 +8,7 @@ from selenium.webdriver.chrome.options import Options # chrome options import
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 import platform # used for check using windows or linux
-import time # time import
+from time import sleep # time import
 
 from env.env import Env
 
