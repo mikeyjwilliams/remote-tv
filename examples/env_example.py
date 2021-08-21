@@ -14,3 +14,9 @@ example of environment variables that will be different for each user
 
 class Env():
     NETFLIX_PROFILE = None
+    NETFLIX_USERNAME = None
+    NETFLIX_PASSWORD = None
+
+    PEACOCK_PROFILE = None
+    PEACOCK_USERNAME = None
+    PEACOCK_PASSWORD = None
